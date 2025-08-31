@@ -300,7 +300,7 @@ sed -i 's|^start|./start|' "$APP_DIR"/bin/immich-admin
 
 # openapi & web build
 cd "$SRC_DIR"
-$STD pnpm --filter @immich/sdk --filter immich-web --frozen-lockfile --force install
+$STD pnpm --filter @immich/sdk --filter immich-web --frozen-lockfile --force install --package-import-method=hardlink
 $STD pnpm --filter @immich/sdk --filter immich-web build
 cp -a web/build "$APP_DIR"/www
 cp LICENSE "$APP_DIR"
